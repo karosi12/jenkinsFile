@@ -10,21 +10,21 @@ pipeline {
         echo "========executing build========"
         echo "building version ${NEW_VERSION}"
       }
-      stage('test') {
-        when {
-          expression {
-            params.executeTests
-          }
-        }
-        steps {
-          echo 'testing the application'
+    }
+    stage('test') {
+      when {
+        expression {
+          params.executeTests
         }
       }
-      stage('deploy') {
-        steps {
-          echo 'deploying the application'
-          echo "Deploying version ${params.VERSION}"
-        }
+      steps {
+        echo 'testing the application'
+      }
+    }
+    stage('deploy') {
+      steps {
+        echo 'deploying the application'
+        echo "Deploying version ${params.VERSION}"
       }
     }
   }
