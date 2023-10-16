@@ -15,3 +15,5 @@ def deploy() {
     }
   }
 }
+
+return this
